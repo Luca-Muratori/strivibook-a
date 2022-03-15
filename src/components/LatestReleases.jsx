@@ -1,5 +1,6 @@
 import books from "../data/history.json";
 import { Component } from "react";
+import "./LatestReleases.css";
 import { Container, Row, Col } from "react-bootstrap";
 
 class LatestReleases extends Component {
@@ -8,10 +9,9 @@ class LatestReleases extends Component {
       <Container fluid>
         <Row>
           {books.map((book) => (
-            <Col className="my-4" lg={3} md={4} sm={6}>
+            <Col key={book.asin} className="my-4" lg={3} md={4} sm={6}>
               <img
-                key={book.asin}
-                className="w-100 h-100"
+                className="w-100 h-100 bookCover "
                 alt="book-cover"
                 src={book.img}
               />
