@@ -2,22 +2,14 @@ import books from "../data/history.json";
 import { Component } from "react";
 import "./LatestReleases.css";
 import { Container, Row, Col, Image } from "react-bootstrap";
+import SingleBook from "./SingleBook.jsx";
 
 class LatestReleases extends Component {
   render() {
     return (
       <Container fluid>
         <Row>
-          {books.map((book) => (
-            <Col key={book.asin} className="my-4" lg={3} md={4} sm={6}>
-              <Image
-                rounded
-                className="w-100 h-100 bookCover "
-                alt="book-cover"
-                src={book.img}
-              />
-            </Col>
-          ))}
+          <SingleBook books={books} width="100%" height="100%" />
         </Row>
       </Container>
     );
