@@ -3,17 +3,11 @@ import SingleBook from "./SingleBook";
 import books from "../data/history.json";
 import { Component } from "react";
 import { InputGroup, FormControl } from "react-bootstrap";
-import FilteredBooks from "./FilteredBook";
 
 class BookList extends Component {
   state = {
     query: "",
   };
-
-  //   handleChange = (query, value) => {
-  //     console.log(this.state.query, value);
-  //     this.setState = { query: value };
-  //   };
 
   render() {
     console.log(this.state.query);
@@ -42,7 +36,19 @@ class BookList extends Component {
         ) : (
           <Container fluid>
             <Row>
-              <FilteredBooks query={this.state.query} />
+              {books
+                .filter((b) =>
+                  b.title.toLowerCase().includes(this.state.query.toLowerCase())
+                )
+                .map((b) => (
+                  <SingleBook
+                    books={b}
+                    objectFit="cover"
+                    heightImg="50%"
+                    width="100%"
+                    height="80%"
+                  />
+                ))}
             </Row>
           </Container>
         )}
