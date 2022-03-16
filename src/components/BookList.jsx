@@ -25,11 +25,12 @@ class BookList extends Component {
           <Container fluid>
             <Row>
               <SingleBook
-                books={books}
+                book={books}
                 objectFit="cover"
                 heightImg="50%"
                 width="100%"
                 height="80%"
+                key={books.asin}
               />
             </Row>
           </Container>
